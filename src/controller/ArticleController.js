@@ -9,6 +9,14 @@ export default class ArticleController {
       .catch(err => this._handleError(err))
   }
 
+  postArticle (data) {
+    let { title, body, userid } = data
+
+    return ArticleEntity.postArticle(title, body, userid)
+      .then(res => this._handleResponse(res))
+      .catch(err => this._handleError(err))
+  }
+
   _handleResponse (res) {
     return res;
   }

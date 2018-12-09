@@ -7,10 +7,10 @@ export const NavHead = (props) => {
     <Header style={{ justifyContent: 'center' }}>
       <Left style={{ flex: 1}} >
         <Icon
-          name="bars"
+          name= {props.icon}
           size={26}
           color="white"
-          onPress={() => props.onPress.navigation.openDrawer()}
+          onPress={props.press}
         />
       </Left>
     </Header>

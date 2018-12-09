@@ -15,10 +15,15 @@ import {
 import {
   createAppContainer, 
   createDrawerNavigator, 
+  createStackNavigator,
   DrawerItems } from 'react-navigation';
 // My Screens
 import ArticleScreen from './src/presentation/screens/Article/ArticleScreen'
+import ArticleEditScreen from './src/presentation/screens/Article/ArticleEditScreen'
+import ArticleCreateScreen from './src/presentation/screens/Article/ArticleCreateScreen'
+import ArticleDetailScreen from './src/presentation/screens/Article/ArticleDetailScreen';
 import ProfileScreen from './src/presentation/screens/Profile/ProfileScreen'
+import ProfileEditScreen from './src/presentation/screens/Profile/ProfileEditScreen'
 import SettingsScreen from './src/presentation/screens/Settings/SettingsScreen'
 //
 export default class App extends Component {
@@ -45,13 +50,50 @@ const CustomDrawerComponent = (props) => {
   )
 }
 //
+const ProfileStack = createStackNavigator(
+  {
+    Profile: {
+      screen: ProfileScreen
+    },
+    EditProfile: {
+      screen: ProfileEditScreen
+    }
+  },{
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  }
+)
+
+const ArticleStack = createStackNavigator(
+  {
+    Article: {
+      screen: ArticleScreen
+    },
+    ReadArticle: {
+      screen: ArticleDetailScreen
+    },
+    CreateArticle: {
+      screen: ArticleCreateScreen
+    },
+    EditArticle: {
+      screen: ArticleEditScreen
+    }
+  },{
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  }
+)
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Article:{
-      screen: ArticleScreen
+      screen: ArticleStack
     },
     Profile: {
-      screen: ProfileScreen
+      screen: ProfileStack
     },
     Settings: {
       screen: SettingsScreen

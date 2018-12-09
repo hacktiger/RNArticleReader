@@ -11,7 +11,10 @@ export default class SettingsScreen extends Component {
   render () {
     return (
       <View>
-        <NavHead onPress={this.props}/>
+        <NavHead 
+          press= { () => this.props.navigation.openDrawer() }
+          icon={'bars'}
+        />
         <Text> Settings Screen </Text>
       </View>
     )

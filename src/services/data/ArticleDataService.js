@@ -7,8 +7,8 @@ export default class ArticleDataService {
     return ArticleReaderGateway.get(`${PATH_ARTICLE}`);
   }
 
-  postArticle (body) {
-    return ArticleReaderGateway.post(`${PATH_ARTICLE}`, body)
+  postArticle (title, body, userid) {
+    return ArticleReaderGateway.post(`${PATH_ARTICLE}?title=${title}&body=${body}&userid=${userid}`)
   }
 
   getArticleById (article_id) {
